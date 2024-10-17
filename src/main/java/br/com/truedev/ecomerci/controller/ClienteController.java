@@ -1,8 +1,7 @@
 package br.com.truedev.ecomerci.controller;
 
 import br.com.truedev.ecomerci.model.Cliente;
-import br.com.truedev.ecomerci.service.IClienteService;
-import org.hibernate.dialect.unique.CreateTableUniqueDelegate;
+import br.com.truedev.ecomerci.service.cliente.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

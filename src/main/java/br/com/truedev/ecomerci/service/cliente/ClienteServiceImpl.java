@@ -1,4 +1,4 @@
-package br.com.truedev.ecomerci.service;
+package br.com.truedev.ecomerci.service.cliente;
 
 import br.com.truedev.ecomerci.dao.ClienteDAO;
 import br.com.truedev.ecomerci.model.Cliente;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
-public class ClienteServiceImpl implements IClienteService{
+public class ClienteServiceImpl implements IClienteService {
 
     @Autowired
     private ClienteDAO clienteDAO;

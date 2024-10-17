@@ -1,4 +1,4 @@
-package br.com.truedev.ecomerci.service;
+package br.com.truedev.ecomerci.service.cliente;
 
 import br.com.truedev.ecomerci.model.Cliente;
 
