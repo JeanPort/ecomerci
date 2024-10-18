@@ -4,6 +4,9 @@ import br.com.truedev.ecomerci.dao.ProdutoDAO;
 import br.com.truedev.ecomerci.model.Categoria;
 import br.com.truedev.ecomerci.model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -12,6 +15,8 @@ import java.util.List;
 public class ProdutoServiceImpl implements IProdutoService{
     @Autowired
     private ProdutoDAO prodDAO;
+
+    private static final Integer PAGE_SIZE = 5;
 
     @Override
     public Produto cadastrarNovo(Produto novo) {
@@ -24,8 +29,9 @@ public class ProdutoServiceImpl implements IProdutoService{
     }
 
     @Override
-    public List<Produto> listarTodos() {
-        return prodDAO.findByOrderByNomeAsc();
+    public Page<Produto> listarTodos(Integer numPage) {
+        Pageable pageable = PageRequest.of(numPage -1,PAGE_SIZE);
+        return prodDAO.findByOrderByNomeAsc(pageable);
     }
 
     @Override

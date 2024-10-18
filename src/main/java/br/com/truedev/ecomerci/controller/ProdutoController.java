@@ -4,6 +4,7 @@ import br.com.truedev.ecomerci.model.Categoria;
 import br.com.truedev.ecomerci.model.Produto;
 import br.com.truedev.ecomerci.service.produto.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,8 @@ public class ProdutoController {
     private IProdutoService service;
 
     @GetMapping(value = "/produtos")
-    public ResponseEntity<List<Produto>> recuperarTodos(){
-        return ResponseEntity.ok(service.listarTodos());
+    public ResponseEntity<Page<Produto>> recuperarTodos(@RequestParam(name = "p", defaultValue = "1") Integer p){
+        return ResponseEntity.ok(service.listarTodos(p));
     }
 
     @GetMapping(value = "/produtos/{id}")
